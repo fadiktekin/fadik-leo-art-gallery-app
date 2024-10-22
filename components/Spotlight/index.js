@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 export function Spotlight({ image, artist, dimensions }) {
   return (
     <div>

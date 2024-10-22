@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { Spotlight } from "../components/Spotlight";
 
 const data = [
@@ -125,6 +126,18 @@ function getRandomImage() {
   return data[Math.floor(Math.random() * data.length)];
 }
 export default function HomePage() {
-  const { imageSource: image, artist, dimensions } = getRandomImage();
-  return <Spotlight image={image} artist={artist} dimensions={dimensions} />;
+  const [randomImage, setRandomImage] = useState(null);
+
+  useEffect(() => {
+    const img = getRandomImage();
+    setRandomImage(img);
+  }, []);
+
+  if (!randomImage) return null;
+
+  const { imageSource, artist, dimensions } = randomImage;
+
+  return (
+    <Spotlight image={imageSource} artist={artist} dimensions={dimensions} />
+  );
 }
