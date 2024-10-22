@@ -1,6 +1,13 @@
 import Image from "next/image";
+import FavoriteButton from "../FavoriteButton";
 
-export function Spotlight({ image, artist, dimensions }) {
+export function Spotlight({
+  image,
+  artist,
+  dimensions,
+  isFavorite,
+  handleToggleFavorite,
+}) {
   return (
     <div>
       <Image
@@ -13,6 +20,10 @@ export function Spotlight({ image, artist, dimensions }) {
         width={dimensions.width}
         height={dimensions.height}
         alt="Spotlight image"
+      />
+      <FavoriteButton
+        isFavorite={isFavorite}
+        onToggleFavorite={handleToggleFavorite}
       />
       <h1>{artist}</h1>
     </div>

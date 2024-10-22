@@ -7,9 +7,21 @@ import {
   StyledArtistName,
 } from "./ArtPiecePreview.styled";
 
-export default function ArtPiecePreview({ image, title, artist, slug }) {
+import FavoriteButton from "../FavoriteButton";
+export default function ArtPiecePreview({
+  image,
+  title,
+  artist,
+  slug,
+  isFavorite,
+  handleToggleFavorite,
+}) {
   return (
     <StyledCard>
+      <FavoriteButton
+        isFavorite={isFavorite}
+        onToggleFavorite={() => handleToggleFavorite(slug)}
+      />
       <Image src={image} alt={title} width={360} height={300}></Image>
       <StyledTitle>
         <Link href={`/art-pieces/${slug}`}>
