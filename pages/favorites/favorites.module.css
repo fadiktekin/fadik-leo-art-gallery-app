@@ -1,0 +1,14 @@
+.title__holder {
+  background-color: var(--light-primary-background-color);
+}
+
+.title__holder h1 {
+  padding: 2em;
+  text-align: center;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+.warning {
+  text-align: center;
+}

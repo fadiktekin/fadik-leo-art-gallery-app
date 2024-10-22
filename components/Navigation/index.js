@@ -5,12 +5,17 @@ export default function Navigation() {
   return (
     <div className={styles.navbar}>
       <h1 className={styles.logo}>GALLERY</h1>
-      <Link href="/art-pieces" className={styles.link}>
-        Gallery
-      </Link>
-      <Link href="/spotlight">
-        <button className={styles.button}>Spotlight</button>
-      </Link>
+      <div className={styles.nav}>
+        <Link href="/art-pieces" className={styles.link}>
+          Gallery
+        </Link>
+        <Link href="/favorites" className={styles.link}>
+          Favorites
+        </Link>
+        <Link href="/index">
+          <button className={styles.button}>Spotlight</button>
+        </Link>
+      </div>
     </div>
   );
 }
