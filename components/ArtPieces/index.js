@@ -1,16 +1,16 @@
 import { StyledContainer } from "./ArtPieces.styled"
 import ArtPiecePreview from "../ArtPiecePreview";
 
-export default function ArtPieces({ pieces }) {
+export default function ArtPieces( {pieces} ) {
   return( 
   <StyledContainer>
-    {pieces && pieces.length > 0 ? (pieces.map((piece) => (
+    {!!pieces ? (pieces.map(({ slug, name, artist, imageSource}) => (
       <ArtPiecePreview 
-        key={piece.slug}
-        title={piece.name}
-        slug={piece.slug}
-        artist={piece.artist}
-        image={piece.imageSource}
+        key={slug}
+        title={name}
+        slug={slug}
+        artist={artist}
+        image={imageSource}
       />
     ))
   ) : (

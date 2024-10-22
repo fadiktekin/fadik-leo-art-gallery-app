@@ -1,8 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import ArtPieces from "."
+import ArtPieces from ".";
 
-test ("Renders Pieces list", () => {
-    render(<ArtPieces />);
-    const card = screen.getByText((piece.name)).toBeInThedocument();
-})
+test("Renders Pieces list", () => {
+  const pieces = null;
+  render(<ArtPieces pieces={pieces} />);
+  const card = screen.getByText("No art pieces available");
+  expect(card).toBeInTheDocument();
+});
