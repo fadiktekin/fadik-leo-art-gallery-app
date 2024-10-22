@@ -3,7 +3,7 @@ import ArtPieces from ".";
 
 test("Renders Pieces list", () => {
   const pieces = null;
-  render(<ArtPieces pieces={pieces} />);
+  render(<ArtPieces artPiecesInfo={pieces} />);
   const card = screen.getByText("No art pieces available");
   expect(card).toBeInTheDocument();
 });

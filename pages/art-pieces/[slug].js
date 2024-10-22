@@ -1,23 +1,18 @@
 import ArtPieceDetails from "@/components/ArtPieceDetails";
+import { isArtPieceFavorite } from "@/lib/utils";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-export default function ArtPiecePage({
-  pieces,
-  artPiecesInfo,
-  handleToggleFavorite,
-}) {
+export default function ArtPiecePage({ artPiecesInfo, handleToggleFavorite }) {
   const router = useRouter();
   const { slug } = router.query;
-  const currentArtPiece = pieces.find((artPiece) => artPiece.slug === slug);
+  const currentArtPiece = artPiecesInfo.find(
+    (artPiece) => artPiece.slug === slug
+  );
   const { imageSource, name, artist, genre, colors, dimensions } =
     currentArtPiece;
 
-  const favoriteItem = artPiecesInfo?.find(
-    (artPiece) => artPiece.slug === slug
-  );
-  const isFavorite = favoriteItem?.isFavorite;
-
+  const isFavorite = isArtPieceFavorite(slug, artPiecesInfo);
   return (
     <>
       <Head>
