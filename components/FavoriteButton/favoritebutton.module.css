@@ -1,0 +1,9 @@
+.marked {
+  background-color: black;
+  color: white;
+}
+
+.favorite {
+  border: 1px solid black;
+  background-color: white;
+}

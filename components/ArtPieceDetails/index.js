@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import FavoriteButton from "../FavoriteButton";
 export default function ArtPieceDetails({
   image,
   title,
@@ -7,6 +7,8 @@ export default function ArtPieceDetails({
   genre,
   colors,
   dimensions,
+  isFavorite,
+  handleToggleFavorite,
 }) {
   return (
     <div>
@@ -20,6 +22,10 @@ export default function ArtPieceDetails({
         width={dimensions.width}
         height={dimensions.height}
         alt="Spotlight image"
+      />
+      <FavoriteButton
+        isFavorite={isFavorite}
+        onToggleFavorite={handleToggleFavorite}
       />
       <h1>{artist}</h1>
     </div>
