@@ -1,31 +1,24 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import { Spotlight } from "../components/Spotlight";
+import { isArtPieceFavorite } from "@/lib/utils";
 
 function getRandomImage(pieces) {
   return pieces[Math.floor(Math.random() * pieces.length)];
 }
 
-export default function SpotlightPage({
-  pieces,
-  artPiecesInfo,
-  handleToggleFavorite,
-}) {
+export default function SpotlightPage({ artPiecesInfo, handleToggleFavorite }) {
   const [randomImage, setRandomImage] = useState(null);
 
   useEffect(() => {
-    const img = getRandomImage(pieces);
+    const img = getRandomImage(artPiecesInfo);
     setRandomImage(img);
   }, []);
 
   if (!randomImage) return null;
 
   const { imageSource, artist, dimensions, name, slug } = randomImage;
-
-  const favoriteItem = artPiecesInfo?.find(
-    (artPiece) => artPiece.slug === slug
-  );
-  const isFavorite = favoriteItem?.isFavorite;
+  const isFavorite = isArtPieceFavorite(slug, artPiecesInfo);
 
   return (
     <>

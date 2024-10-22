@@ -1,20 +1,13 @@
 import { StyledContainer } from "./ArtPieces.styled";
 import ArtPiecePreview from "../ArtPiecePreview";
+import { isArtPieceFavorite } from "@/lib/utils";
 
-export default function ArtPieces({
-  pieces,
-  artPiecesInfo,
-  handleToggleFavorite,
-}) {
+export default function ArtPieces({ artPiecesInfo, handleToggleFavorite }) {
   return (
     <StyledContainer>
-      {!!pieces ? (
-        pieces.map(({ slug, name, artist, imageSource }) => {
-          const favoriteItem = artPiecesInfo?.find(
-            (artPiece) => artPiece.slug === slug
-          );
-          const isFavorite = favoriteItem?.isFavorite;
-
+      {!!artPiecesInfo ? (
+        artPiecesInfo.map(({ slug, name, artist, imageSource }) => {
+          const isFavorite = isArtPieceFavorite(slug, artPiecesInfo);
           return (
             <ArtPiecePreview
               key={slug}
