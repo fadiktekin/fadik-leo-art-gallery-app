@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import { Spotlight } from "../components/Spotlight";
@@ -8,9 +7,6 @@ function getRandomImage() {
 }
 
 export default function SpotlightPage() {
-  const router = useRouter();
-  const { slug } = router.query;
-
   const [randomImage, setRandomImage] = useState(null);
 
   useEffect(() => {
@@ -20,16 +16,17 @@ export default function SpotlightPage() {
 
   if (!randomImage) return null;
 
-  const { imageSource, artist, dimensions } = randomImage;
+  const { imageSource, artist, dimensions, name } = randomImage;
 
   return (
     <>
       <Head>
-        <title>Spotlight: {name}</title>
+        <title>
+          Spotlight: {artist} | {name}
+        </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <div>
-        <h1>{slug}</h1>
         <Spotlight
           image={imageSource}
           artist={artist}

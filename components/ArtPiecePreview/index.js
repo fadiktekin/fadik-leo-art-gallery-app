@@ -12,7 +12,7 @@ export default function ArtPiecePreview({ image, title, artist, slug }) {
     <StyledCard>
       <Image src={image} alt={title} width={360} height={300}></Image>
       <StyledTitle>
-        <Link href={`${slug}`}>
+        <Link href={`/art-pieces/${slug}`}>
           <StyledPieceTitle>{title}</StyledPieceTitle>
         </Link>
         <StyledArtistName>{artist}</StyledArtistName>
