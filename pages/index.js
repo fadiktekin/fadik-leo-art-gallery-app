@@ -1,5 +1,41 @@
+import Head from "next/head";
 import { useState, useEffect } from "react";
 import { Spotlight } from "../components/Spotlight";
+
+function getRandomImage() {
+  return data[Math.floor(Math.random() * data.length)];
+}
+
+export default function SpotlightPage() {
+  const [randomImage, setRandomImage] = useState(null);
+
+  useEffect(() => {
+    const img = getRandomImage();
+    setRandomImage(img);
+  }, []);
+
+  if (!randomImage) return null;
+
+  const { imageSource, artist, dimensions, name } = randomImage;
+
+  return (
+    <>
+      <Head>
+        <title>
+          Spotlight: {artist} | {name}
+        </title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <div>
+        <Spotlight
+          image={imageSource}
+          artist={artist}
+          dimensions={dimensions}
+        />
+      </div>
+    </>
+  );
+}
 
 const data = [
   {
@@ -121,23 +157,3 @@ const data = [
     dimensions: { height: 2880, width: 1920, type: "jpg" },
   },
 ];
-
-function getRandomImage() {
-  return data[Math.floor(Math.random() * data.length)];
-}
-export default function HomePage() {
-  const [randomImage, setRandomImage] = useState(null);
-
-  useEffect(() => {
-    const img = getRandomImage();
-    setRandomImage(img);
-  }, []);
-
-  if (!randomImage) return null;
-
-  const { imageSource, artist, dimensions } = randomImage;
-
-  return (
-    <Spotlight image={imageSource} artist={artist} dimensions={dimensions} />
-  );
-}
