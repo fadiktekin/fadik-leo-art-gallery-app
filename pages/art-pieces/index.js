@@ -1,7 +1,7 @@
 import Head from "next/head";
 import ArtPieces from "@/components/ArtPieces";
 
-export default function ArtPiecePage({ pieces }) {
+export default function GalleryPage({ pieces }) {
   return (
     <>
       <Head>
