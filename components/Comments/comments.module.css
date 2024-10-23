@@ -1,0 +1,14 @@
+.comment {
+  border-bottom: dashed 2px var(--white);
+}
+
+.date {
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: var(--white);
+  margin-bottom: 0.6em;
+}
+
+.comment_text {
+  color: var(--white);
+}

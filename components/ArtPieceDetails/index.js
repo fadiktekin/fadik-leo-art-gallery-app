@@ -13,11 +13,19 @@ export default function ArtPieceDetails({
   isFavorite,
   handleToggleFavorite,
   onSubmitComment,
-  comments,
 }) {
   const router = useRouter();
-  const { imageSource, year, name, artist, genre, colors, dimensions } =
-    artPiece;
+  const {
+    imageSource,
+    year,
+    name,
+    artist,
+    genre,
+    colors,
+    slug,
+    dimensions,
+    comments,
+  } = artPiece;
 
   return (
     <div>
@@ -51,8 +59,7 @@ export default function ArtPieceDetails({
         isFavorite={isFavorite}
         onToggleFavorite={handleToggleFavorite}
       />
-      <h1>{artist}</h1>
-      <CommentForm onSubmitComment={onSubmitComment} />
+      <CommentForm onSubmitComment={onSubmitComment} slug={slug} />
       <Comments comments={comments} />
     </div>
   );

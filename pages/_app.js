@@ -1,7 +1,8 @@
 import useSWR from "swr";
 import Layout from "@/components/Layout";
 import { useEffect, useState } from "react";
-import CommentForm from "@/components/CommentForm";
+import useLocalStorage from "use-local-storage";
+
 import "../globals.css";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -13,9 +14,10 @@ export default function App({ Component, pageProps }) {
     isLoading,
   } = useSWR("https://example-apis.vercel.app/api/art", fetcher);
 
-  const [artPiecesInfo, setArtPiecesInfo] = useState(null);
-
-  const [comments, setComments] = useState([]);
+  const [artPiecesInfo, setArtPiecesInfo] = useLocalStorage(
+    "artPiecesInfo",
+    ""
+  );
 
   useEffect(() => {
     console.log("Fetched data", fetchedData);
@@ -49,23 +51,20 @@ export default function App({ Component, pageProps }) {
   }
 
   function handleAddComment(comment) {
-    const date = new Date().toLocaleDateString("en-us", {
-      dateStyle: "medium",
-    });
+    setArtPiecesInfo((prevArr) => {
+      return prevArr.map((artPiece) => {
+        if (artPiece.slug === comment.slug) {
+          let oldcomments = [];
 
-    setComments([...comments, { date: date, comment: comment }]);
+          if (artPiece.hasOwnProperty("comments")) {
+            oldcomments = artPiece.comments;
+          }
+          return { ...artPiece, comments: [...oldcomments, comment] };
+        }
+        return artPiece;
+      });
+    });
   }
-
-  /* function handleArtPiecesComments(slug) {
-  
-    setArtPiecesInfo((prevArtPiecesInfo) => {
-      return prevArtPiecesInfo.map((artPiece) =>
-        artPiece.slug === slug
-          ? { ...artPiece, comments: [...comments] }
-          : artPiece
-      );
-    });
-  } */
 
   console.log("artPiecesInfo", artPiecesInfo);
 
@@ -77,7 +76,6 @@ export default function App({ Component, pageProps }) {
         artPiecesInfo={artPiecesInfo}
         handleToggleFavorite={handleToggleFavorite}
         onSubmitComment={handleAddComment}
-        comments={comments}
       />
     </>
   );
