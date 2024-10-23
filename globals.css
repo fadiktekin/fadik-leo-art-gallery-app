@@ -1,0 +1,22 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui;
+}
+
+:root {
+  --background-color-primary: #282a3a;
+  --background-color-primary-light: #282a3a;
+  --background-color-secondary: #9747ff;
+  --background-color-secondary-light: #e4ccff;
+  --background-color-teritiary: #0d99ff;
+  --background-color-teritiary-light: #bde3ff;
+  --accent-color-primary: #14ae5c;
+  --black: black;
+  --white: white;
+}

@@ -32,6 +32,7 @@ export default function SpotlightPage({ artPiecesInfo, handleToggleFavorite }) {
         <Spotlight
           image={imageSource}
           artist={artist}
+          name={name}
           dimensions={dimensions}
           isFavorite={isFavorite}
           handleToggleFavorite={() => handleToggleFavorite(slug)}
