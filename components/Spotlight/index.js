@@ -34,7 +34,6 @@ export function Spotlight({
         isFavorite={isFavorite}
         onToggleFavorite={handleToggleFavorite}
       />
-      <h1>{artist}</h1>
     </div>
   );
 }
