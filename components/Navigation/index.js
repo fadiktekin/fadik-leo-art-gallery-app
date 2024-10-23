@@ -7,7 +7,7 @@ export default function Navigation() {
     <div className={styles.navbar}>
       <h1>
         <Link className={styles.logo} href="/">
-          GALLERY
+          LOGO GALLERY
         </Link>
       </h1>
       <div className={styles.nav}>

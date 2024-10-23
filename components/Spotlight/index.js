@@ -30,10 +30,6 @@ export function Spotlight({
         height={dimensions.height}
         alt="Spotlight image"
       />
-      <FavoriteButton
-        isFavorite={isFavorite}
-        onToggleFavorite={handleToggleFavorite}
-      />
     </div>
   );
 }

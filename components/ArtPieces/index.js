@@ -6,7 +6,7 @@ export default function ArtPieces({ artPiecesInfo, handleToggleFavorite }) {
   return (
     <StyledContainer>
       {!!artPiecesInfo ? (
-        artPiecesInfo.map(({ slug, name, artist, imageSource }) => {
+        artPiecesInfo.map(({ slug, name, artist, imageSource, dimensions }) => {
           const isFavorite = isArtPieceFavorite(slug, artPiecesInfo);
           return (
             <ArtPiecePreview
@@ -15,6 +15,7 @@ export default function ArtPieces({ artPiecesInfo, handleToggleFavorite }) {
               slug={slug}
               artist={artist}
               image={imageSource}
+              dimensions={dimensions}
               isFavorite={isFavorite}
               handleToggleFavorite={handleToggleFavorite}
             />

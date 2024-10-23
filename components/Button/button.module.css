@@ -9,3 +9,12 @@
   margin: 0.5rem;
   cursor: pointer;
 }
+
+@media (max-width: 800px) {
+  .button {
+    padding: 0.6em;
+    height: 40px;
+    width: fit-content;
+    font-size: 10px;
+  }
+}
