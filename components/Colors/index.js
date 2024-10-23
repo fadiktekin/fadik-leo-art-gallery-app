@@ -9,6 +9,7 @@ export default function Colors({ colors }) {
         colors.map((color) => {
           return (
             <div
+              data-testid={color}
               key={color}
               className={styles.color}
               style={{ backgroundColor: `${color}` }}
