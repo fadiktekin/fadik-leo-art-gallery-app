@@ -1,18 +1,19 @@
+import styles from "./comments.module.css";
+
 export default function Comments({ comments }) {
   return (
     <>
       {!!comments ? (
         comments.map(({ date, comment }) => {
           return (
-            <div key={date}>
-              <h5>{date}</h5>
-              <p>{comment}</p>
-              <hr></hr>
+            <div key={date} className={styles.comment}>
+              <h5 className={styles.date}>{date}</h5>
+              <p className={styles.comment_text}>{comment}</p>
             </div>
           );
         })
       ) : (
-        <p>Nobody commented yer</p>
+        <p>Nobody commented yet</p>
       )}
     </>
   );

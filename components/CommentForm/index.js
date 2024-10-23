@@ -1,12 +1,17 @@
 import styles from "./form.module.css";
 
-export default function CommentForm({ onSubmitComment }) {
+export default function CommentForm({ onSubmitComment, slug }) {
   function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
     const comment = form.elements.comment.value;
-    onSubmitComment(comment);
+    const date = new Date().toLocaleString("en-us", {
+      timeZone: "CET",
+    });
+    const data = { slug, comment, date };
+    onSubmitComment(data);
     e.target.reset();
+    console.log(data);
   }
 
   return (
