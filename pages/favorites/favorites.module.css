@@ -1,11 +1,12 @@
 .title__holder {
-  background-color: var(--light-primary-background-color);
+  background-color: var(--background-color-teritiary);
 }
 
 .title__holder h1 {
   padding: 2em;
   text-align: center;
-  font-weight: 200;
+  font-weight: 400;
+  color: var(--white);
   text-transform: uppercase;
 }
 
