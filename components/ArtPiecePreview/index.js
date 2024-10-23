@@ -14,12 +14,23 @@ export default function ArtPiecePreview({
   title,
   artist,
   slug,
+  dimensions,
   isFavorite,
   handleToggleFavorite,
 }) {
   return (
     <StyledCard>
-      <Image src={image} alt={title} width={360} height={300}></Image>
+      <Image
+        src={image}
+        alt={title}
+        sizes="100vw"
+        style={{
+          width: "100%",
+          height: "auto",
+        }}
+        width={dimensions.width}
+        height={dimensions.height}
+      ></Image>
       <StyledTitle>
         <Link href={`/art-pieces/${slug}`}>
           <StyledPieceTitle>{title}</StyledPieceTitle>

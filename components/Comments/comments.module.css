@@ -1,15 +1,21 @@
+.comments__title {
+  color: var(--white);
+  text-align: center;
+}
 .comment {
   border-bottom: dashed 2px var(--white);
-  background-color: black;
+  color: var(--white);
 }
 
-.date {
+.comment__date {
   font-weight: bold;
+  font-size: 8px;
   font-size: 0.8rem;
   color: var(--white);
   margin-bottom: 0.6em;
 }
 
-.comment_text {
+.comment__text {
   color: var(--white);
+  font-size: large;
 }

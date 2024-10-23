@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import FavoriteButton from "../FavoriteButton";
 import CommentForm from "../CommentForm";
 import Comments from "../Comments";

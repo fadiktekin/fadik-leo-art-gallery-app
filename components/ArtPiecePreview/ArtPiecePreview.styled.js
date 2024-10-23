@@ -3,8 +3,10 @@ import styled from "styled-components";
 export const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
-  flex-basis: 30%;
-  background-color: var(--background-color-secondary);
+  width: auto;
+  max-width: 360px;
+  height: fit-content;
+  background-color: var(--background-color-teritiary);
   color: var(--white);
 `;
 

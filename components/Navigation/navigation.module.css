@@ -6,16 +6,18 @@
   justify-content: space-between;
   padding: 0.5em 2em;
   background-color: var(--primary-background-color);
+  color: var(--white);
 }
 
 .nav {
+  text-align: right;
   column-gap: 1em;
 }
 
 .logo {
   flex-basis: 20%;
   text-decoration: none;
-  color: var(--black);
+  color: var(--white);
 }
 
 .link {
@@ -23,10 +25,27 @@
   font-weight: bold;
   text-transform: uppercase;
   padding: 1em;
+  color: var(--white);
 }
 
 .button {
   padding: 1em;
   border-radius: 10px;
   background-color: var(--primary-accent-color);
+  box-shadow: none !important;
+}
+
+@media (max-width: 800px) {
+  .navbar {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-items: center;
+  }
+  .logo {
+    flex-basis: 100%;
+    line-height: 20px;
+  }
+  .link {
+    font-size: smaller;
+  }
 }

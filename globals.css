@@ -4,11 +4,6 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: system-ui;
-}
-
 :root {
   --background-color-primary: #282a3a;
   --background-color-primary-light: #282a3a;
@@ -19,4 +14,10 @@ body {
   --accent-color-primary: #14ae5c;
   --black: black;
   --white: white;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui;
+  background-color: var(--background-color-primary);
 }
