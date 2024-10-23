@@ -14,22 +14,15 @@ export default function ArtPiecePage({
   const currentArtPiece = artPiecesInfo.find(
     (artPiece) => artPiece.slug === slug
   );
-  const { imageSource, name, artist, genre, colors, dimensions } =
-    currentArtPiece;
 
   const isFavorite = isArtPieceFavorite(slug, artPiecesInfo);
   return (
     <>
       <Head>
-        <title>Art Pieces</title>
+        <title>{name}</title>
       </Head>
       <ArtPieceDetails
-        image={imageSource}
-        title={name}
-        artist={artist}
-        genre={genre}
-        colors={colors}
-        dimensions={dimensions}
+        artPiece={currentArtPiece}
         isFavorite={isFavorite}
         handleToggleFavorite={() => handleToggleFavorite(slug)}
         onSubmitComment={onSubmitComment}

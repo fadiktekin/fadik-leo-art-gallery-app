@@ -1,8 +1,8 @@
-import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "@/components/Layout";
 import { useEffect, useState } from "react";
 import CommentForm from "@/components/CommentForm";
+import "../globals.css";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -71,7 +71,6 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <GlobalStyle />
       <Layout />
       <Component
         {...pageProps}
