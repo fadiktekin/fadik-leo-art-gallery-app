@@ -1,5 +1,7 @@
 import Image from "next/image";
 import FavoriteButton from "../FavoriteButton";
+import CommentForm from "../CommentForm";
+import Comments from "../Comments";
 export default function ArtPieceDetails({
   image,
   title,
@@ -9,6 +11,8 @@ export default function ArtPieceDetails({
   dimensions,
   isFavorite,
   handleToggleFavorite,
+  onSubmitComment,
+  comments,
 }) {
   return (
     <div>
@@ -28,6 +32,8 @@ export default function ArtPieceDetails({
         onToggleFavorite={handleToggleFavorite}
       />
       <h1>{artist}</h1>
+      <CommentForm onSubmitComment={onSubmitComment} />
+      <Comments comments={comments} />
     </div>
   );
 }

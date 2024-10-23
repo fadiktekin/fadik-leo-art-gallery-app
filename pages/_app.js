@@ -2,6 +2,7 @@ import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "@/components/Layout";
 import { useEffect, useState } from "react";
+import CommentForm from "@/components/CommentForm";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -13,6 +14,8 @@ export default function App({ Component, pageProps }) {
   } = useSWR("https://example-apis.vercel.app/api/art", fetcher);
 
   const [artPiecesInfo, setArtPiecesInfo] = useState(null);
+
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     console.log("Fetched data", fetchedData);
@@ -45,7 +48,27 @@ export default function App({ Component, pageProps }) {
     });
   }
 
+  function handleAddComment(comment) {
+    const date = new Date().toLocaleDateString("en-us", {
+      dateStyle: "medium",
+    });
+
+    setComments([...comments, { date: date, comment: comment }]);
+  }
+
+  /* function handleArtPiecesComments(slug) {
+  
+    setArtPiecesInfo((prevArtPiecesInfo) => {
+      return prevArtPiecesInfo.map((artPiece) =>
+        artPiece.slug === slug
+          ? { ...artPiece, comments: [...comments] }
+          : artPiece
+      );
+    });
+  } */
+
   console.log("artPiecesInfo", artPiecesInfo);
+
   return (
     <>
       <GlobalStyle />
@@ -54,6 +77,8 @@ export default function App({ Component, pageProps }) {
         {...pageProps}
         artPiecesInfo={artPiecesInfo}
         handleToggleFavorite={handleToggleFavorite}
+        onSubmitComment={handleAddComment}
+        comments={comments}
       />
     </>
   );

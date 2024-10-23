@@ -3,7 +3,12 @@ import { isArtPieceFavorite } from "@/lib/utils";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-export default function ArtPiecePage({ artPiecesInfo, handleToggleFavorite }) {
+export default function ArtPiecePage({
+  artPiecesInfo,
+  onSubmitComment,
+  handleToggleFavorite,
+  comments,
+}) {
   const router = useRouter();
   const { slug } = router.query;
   const currentArtPiece = artPiecesInfo.find(
@@ -27,6 +32,8 @@ export default function ArtPiecePage({ artPiecesInfo, handleToggleFavorite }) {
         dimensions={dimensions}
         isFavorite={isFavorite}
         handleToggleFavorite={() => handleToggleFavorite(slug)}
+        onSubmitComment={onSubmitComment}
+        comments={comments}
       />
     </>
   );
