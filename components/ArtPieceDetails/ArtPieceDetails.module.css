@@ -11,3 +11,19 @@
   text-decoration-line: underline;
   cursor: pointer;
 }
+
+.description__section {
+  background-color: var(--background-color-teritiary);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.description__container {
+  color: var(--white);
+}
+
+.description__text {
+  padding: 3em 3em;
+  font-size: x-large;
+}
