@@ -11,3 +11,33 @@
   text-decoration-line: underline;
   cursor: pointer;
 }
+
+.description__section {
+  background-color: var(--background-color-teritiary);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.description__text {
+  padding: 3em 3em;
+  font-size: x-large;
+  line-height: 1.5;
+  color: var(--white);
+}
+
+@media (max-width: 800px) {
+  .description__section {
+    background-color: var(--background-color-teritiary);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .description__text {
+    padding: 3em 3em;
+    font-size: large;
+    line-height: 1.5;
+    color: var(--white);
+  }
+}

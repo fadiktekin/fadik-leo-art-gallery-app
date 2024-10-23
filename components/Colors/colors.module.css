@@ -1,0 +1,28 @@
+.colorpalette {
+  background-color: var(--white);
+  text-align: center;
+  padding: 3em;
+  display: flex;
+  flex-direction: column;
+}
+
+.color {
+  width: 100px;
+  height: 100px;
+}
+
+@media (max-width: 800px) {
+  .colorpalette {
+    text-align: center;
+    padding: 2em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .colorpalette h3 {
+    flex-basis: 100%;
+    font-weight: 400;
+  }
+}
