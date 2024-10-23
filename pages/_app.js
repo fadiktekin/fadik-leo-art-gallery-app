@@ -1,8 +1,7 @@
 import useSWR from "swr";
 import Layout from "@/components/Layout";
 import { useEffect, useState } from "react";
-import useLocalStorage from "use-local-storage";
-
+import useLocalStorageState from "use-local-storage-state";
 import "../globals.css";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -14,14 +13,14 @@ export default function App({ Component, pageProps }) {
     isLoading,
   } = useSWR("https://example-apis.vercel.app/api/art", fetcher);
 
-  const [artPiecesInfo, setArtPiecesInfo] = useLocalStorage(
+  const [artPiecesInfo, setArtPiecesInfo] = useLocalStorageState(
     "artPiecesInfo",
     ""
   );
 
   useEffect(() => {
     console.log("Fetched data", fetchedData);
-    if (fetchedData) {
+    if (fetchedData && !artPiecesInfo) {
       const dataWithIsFavorite = fetchedData.map((artPiece) => ({
         ...artPiece,
         isFavorite: false,
@@ -55,7 +54,6 @@ export default function App({ Component, pageProps }) {
       return prevArr.map((artPiece) => {
         if (artPiece.slug === comment.slug) {
           let oldcomments = [];
-
           if (artPiece.hasOwnProperty("comments")) {
             oldcomments = artPiece.comments;
           }

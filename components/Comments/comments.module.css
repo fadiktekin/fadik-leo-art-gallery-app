@@ -1,5 +1,6 @@
 .comment {
   border-bottom: dashed 2px var(--white);
+  background-color: black;
 }
 
 .date {
