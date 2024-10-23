@@ -7,6 +7,7 @@ test("Renders Pieces Card", () => {
     slug: "orange-red-green-abstract-painting",
     artist: "Artist Name",
     image: "/path/to/image.jpg",
+    dimensions: { width: 10, height: 10 },
   };
 
   render(<ArtPiecePreview {...mockProps} />);
