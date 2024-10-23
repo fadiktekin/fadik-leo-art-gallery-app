@@ -3,6 +3,8 @@ import Layout from "@/components/Layout";
 import { useEffect, useState } from "react";
 import useLocalStorageState from "use-local-storage-state";
 import "../globals.css";
+import { Inter } from "next/font/google";
+const inter = Inter({ subsets: ["latin"] });
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -67,7 +69,7 @@ export default function App({ Component, pageProps }) {
   console.log("artPiecesInfo", artPiecesInfo);
 
   return (
-    <>
+    <main className={inter.className}>
       <Layout />
       <Component
         {...pageProps}
@@ -75,6 +77,6 @@ export default function App({ Component, pageProps }) {
         handleToggleFavorite={handleToggleFavorite}
         onSubmitComment={handleAddComment}
       />
-    </>
+    </main>
   );
 }
